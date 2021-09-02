@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sistema Solar - Lina Cortes</title>
+    <script src="three.min.js"></script>
+</head>
+
+<body>
+<!--Canvas-Escenario de trabajo-->
+<script>
+ //Render WEBGL   
+ const renderer = new THREE.WebGLRenderer();
+ renderer.setSize(window.innerWidth, window.innerHeight);
+ document.body.appendChild(renderer.domElement);
+ //No se cambia
+ const camera = new THREE.PerspectiveCamera(70, window.innerWidth/window.innerHeight,1,400);
+ camera.position.set(0,0,40);
+ const scene = new THREE.Scene();//Grafo de escena
+ //Son los que poco cambian
+
+ //Agregar textura (fondo)
+var texture = new THREE.TextureLoader().load( "TexturaFondo1.jpg" );
+scene.background = texture;
+
+ //elementos graficos->primitivas
+ //objMercurios, cubos, piramides
+//malla, textura= mesh
+ var texture = new THREE.TextureLoader().load( 'TexturaSol.jpg' );
+ var sol=new THREE.SphereGeometry(4,50,50);
+ var material=new THREE.MeshBasicMaterial( { map: texture } );
+ var objSol=new THREE.Mesh(sol, material);
+
+ var texture1 = new THREE.TextureLoader().load( 'TexturaMercurio.jpg' );
+ var mercurio=new THREE.SphereGeometry(1,32,32);
+ var material1=new THREE.MeshBasicMaterial( { map: texture1 } );
+ var objMercurio=new THREE.Mesh(mercurio, material1); 
+ var radio1=6;
+
+ var texture2 = new THREE.TextureLoader().load( 'TexturaVenus.jpg' );
+ var venus=new THREE.SphereGeometry(1.2,32,32);
+ var material2=new THREE.MeshBasicMaterial( { map: texture2 } );
+ var objVenus=new THREE.Mesh(venus, material2);
+ var radio2=8;
+
+ var texture3 = new THREE.TextureLoader().load( 'TexturaTierra.jpg' );
+ var tierra=new THREE.SphereGeometry(1.4,32,32);
+ var material3=new THREE.MeshBasicMaterial( { map: texture3 } );
+ var objTierra=new THREE.Mesh(tierra, material3);
+ var radio3=10;
+
+ var texture4 = new THREE.TextureLoader().load( 'TexturaMarte.jpg' );
+ var marte=new THREE.SphereGeometry(1.3,32,32);
+ var material4=new THREE.MeshBasicMaterial( { map: texture4 } );
+ var objMarte=new THREE.Mesh(marte, material4);
+ var radio4=12;
+
+ var texture5 = new THREE.TextureLoader().load( 'TexturaJupiter.jpg' );
+ var jupiter=new THREE.SphereGeometry(2.2,32,32);
+ var material5=new THREE.MeshBasicMaterial( { map: texture5 } );
+ var objJupiter=new THREE.Mesh(jupiter, material5);
+ var radio5=14;
+
+ var texture6 = new THREE.TextureLoader().load( 'TexturaSaturno.jpg' );
+ var saturno=new THREE.SphereGeometry(1.8,32,32);
+ var material6=new THREE.MeshBasicMaterial( { map: texture6 } );
+ var objSaturno=new THREE.Mesh(saturno, material6);
+ var radio6=16;
+
+ var texture7 = new THREE.TextureLoader().load( 'TexturaUrano.jpg' );
+ var urano=new THREE.SphereGeometry(1.6,32,32);
+ var material7=new THREE.MeshBasicMaterial( { map: texture7 } );
+ var objUrano=new THREE.Mesh(urano, material7);
+ var radio7=18;
+
+ var texture8 = new THREE.TextureLoader().load( 'TexturaNeptuno.jpg' );
+ var neptuno=new THREE.SphereGeometry(1.5,32,32);
+ var material8=new THREE.MeshBasicMaterial( { map: texture8 } );
+ var objNeptuno=new THREE.Mesh(neptuno, material8);
+ var radio8=20;
+
+
+ scene.add(objSol);
+ scene.add(objMercurio);
+ scene.add(objVenus);
+ scene.add(objTierra);
+ scene.add(objMarte);
+ scene.add(objJupiter);
+ scene.add(objSaturno);
+ scene.add(objUrano);
+ scene.add(objNeptuno);
+ //objMercurio.position.x= objMercurio.position.x+5;
+ //x=rcos(a) y y=rsen(a) 
+
+ renderer.render(scene,camera);
+    var a1=0, a2=0, a3=0, a4=0, a5=0, a6=0, a7=0, a8=0;
+    var animar=function(){
+      a1=a1+0.01;
+      a2=a2+0.012;
+      a3=a3+0.014;
+      a4=a4+0.016;
+      a5=a5+0.018;
+      a6=a6+0.020;
+      a7=a7+0.022;
+      a8=a8+0.024;
+
+      objSol.rotation.x+=0.01;//transform group
+
+      objMercurio.position.x=radio1*Math.cos(a1);
+      objMercurio.position.z=radio1*Math.sin(a1);      
+      objMercurio.rotation.x+=0.01;//transform group
+
+      objVenus.position.x=radio2*Math.cos(a2);
+      objVenus.position.z=radio2*Math.sin(a2);      
+      objVenus.rotation.x+=0.01;//transform group
+
+      objTierra.position.x=radio3*Math.cos(a3);
+      objTierra.position.z=radio3*Math.sin(a3);      
+      objTierra.rotation.x+=0.01;//transform group
+
+      objMarte.position.x=radio4*Math.cos(a4);
+      objMarte.position.z=radio4*Math.sin(a4);      
+      objMarte.rotation.x+=0.01;//transform group
+
+      objJupiter.position.x=radio5*Math.cos(a5);
+      objJupiter.position.z=radio5*Math.sin(a5);      
+      objJupiter.rotation.x+=0.01;//transform group
+
+      objSaturno.position.x=radio6*Math.cos(a6);
+      objSaturno.position.z=radio6*Math.sin(a6);      
+      objSaturno.rotation.x+=0.01;//transform group
+
+      objUrano.position.x=radio7*Math.cos(a7);
+      objUrano.position.z=radio7*Math.sin(a7);      
+      objUrano.rotation.x+=0.01;//transform group
+
+      objNeptuno.position.x=radio8*Math.cos(a8);
+      objNeptuno.position.z=radio8*Math.sin(a8);      
+      objNeptuno.rotation.x+=0.01;//transform group
+
+      renderer.render(scene,camera);
+      requestAnimationFrame(animar);//ejectutar un funcion a 60fps//setup      
+    }
+  animar();
+</script>
+</body>
+</html>
