@@ -1,5 +1,4 @@
-# three
-Proyectos con Three JS
+# Proyectos con Three JS
 
 SistemaSolar: Sistema solar, con movimiento, estrellas y OrbitControls
 ![image](https://user-images.githubusercontent.com/40616126/133717661-4d9d334f-eadb-4765-bfe2-bb480b4346bb.png)
