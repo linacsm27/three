@@ -9,5 +9,5 @@ proyectoFinal: Manejo de Patron Factory, agregar/eliminar planetas, aumentar/dis
 ![image](https://user-images.githubusercontent.com/40616126/133717866-65e580b2-85ec-49da-9738-d56fa84b5cff.png)
 
 # Unity
-Sistema Solar: planetas con movimiento
+Sistema Solar: planetas con movimiento, textura y fondo
 ![image](https://user-images.githubusercontent.com/40616126/139356962-7cfc335b-a2bd-4264-9dfa-48b6803aae24.png)
